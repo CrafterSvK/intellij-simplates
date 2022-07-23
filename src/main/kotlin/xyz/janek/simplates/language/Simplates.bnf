@@ -1,0 +1,27 @@
+{
+    parserClass="xyz.janek.simplates.language.parser.SimplatesParser"
+    extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+    psiClassPrefix="Simplates"
+    psiImplClassSuffix="Impl"
+    psiPackage="xyz.janek.simplates.language.psi.impl"
+    elementTypeClass="xyz.janek.simplates.language.psi.SimplatesElementType"
+    tokenTypeClass="xyz.janek.simplates.language.psi.SimplatesTokenType"
+
+    tokens=[
+        begin='regexp:\[---+]'
+        contentType='regexp:[a-z]+/[a-z.+\-]+'
+        functionName='regexp:\S+'
+        space='regexp:\s+'
+        code='regexp:^(?!\[---+]).*'
+    ]
+}
+
+simplatesFile ::= item_*
+
+private item_ ::= (annotation|code)
+
+annotation ::= (via|typed|empty)
+
+empty ::= begin
+typed ::= empty + space + contentType
+via ::= typed + space + "via" + space + functionName
