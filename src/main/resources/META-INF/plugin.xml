@@ -14,7 +14,7 @@
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
-    Simplates support [http://simplates.org]
+    Adds support for Simplates [http://simplates.org](http://simplates.org).
   ]]></description>
 
     <!-- Product and plugin compatibility requirements.
@@ -33,9 +33,12 @@
         <lang.parserDefinition
                 language="Simplates"
                 implementationClass="xyz.janek.simplates.language.SimplatesParserDefinition"/>
+        <lang.syntaxHighlighterFactory
+                language="Simplates"
+                implementationClass="xyz.janek.simplates.language.SimplatesSyntaxHighlighterFactory"/>
     </extensions>
     <actions>
-        <action class="xyz.janek.simplates.CreateSimplatesFileAction" id="CreateSimplatesFile">
+        <action class="xyz.janek.simplates.CreateSimplatesAction" id="CreateSimplatesFile">
             <add-to-group group-id="NewGroup" anchor="before" relative-to-action="NewFile"/>
         </action>
     </actions>

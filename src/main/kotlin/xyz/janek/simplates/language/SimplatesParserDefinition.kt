@@ -19,6 +19,7 @@ import xyz.janek.simplates.language.psi.SimplatesTypes
 class SimplatesParserDefinition : ParserDefinition {
     companion object {
         val WHITE_SPACES = TokenSet.create(TokenType.WHITE_SPACE)
+        val STRING_LITERALS = TokenSet.create(SimplatesTypes.CONTENT_TYPE)
         val FILE = IFileElementType(SimplatesLanguage)
     }
 
@@ -43,7 +44,7 @@ class SimplatesParserDefinition : ParserDefinition {
     }
 
     override fun getStringLiteralElements(): TokenSet {
-        return TokenSet.EMPTY
+        return STRING_LITERALS
     }
 
     override fun createElement(node: ASTNode?): PsiElement {

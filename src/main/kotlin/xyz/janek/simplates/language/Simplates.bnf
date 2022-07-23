@@ -13,11 +13,9 @@
         BEGIN='regexp:\[---+]'
         CONTENT_TYPE='regexp:[a-z]+/[a-z.+\-]+'
         FUNCTION_NAME='regexp:[a-zA-Z_][a-z0-9_]+'
-//        CODE='regexp:^(?!\[---+]).*'
         CODE='regexp:.*'
         SEP_SPACE='regexp:\s+'
         VIA_TOKEN='regexp:(via)'
-        EOL='regexp:\R'
     ]
 }
 
@@ -25,5 +23,6 @@ simplatesFile ::= item_*
 
 private item_ ::= (annotation|CODE)
 
-annotation ::= BEGIN [SEP_SPACE content_]|EOL
-private content_ ::= CONTENT_TYPE [SEP_SPACE VIA_TOKEN SEP_SPACE FUNCTION_NAME]|EOL
+annotation ::= BEGIN [SEP_SPACE content_]
+private content_ ::= CONTENT_TYPE [SEP_SPACE via_]
+private via_ ::= VIA_TOKEN SEP_SPACE FUNCTION_NAME
