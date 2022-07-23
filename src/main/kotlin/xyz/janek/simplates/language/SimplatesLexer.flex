@@ -2,15 +2,14 @@ package xyz.janek.simplates.language;
 
 import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.tree.IElementType;
+import xyz.janek.simplates.language.psi.SimplatesTokenType;import xyz.janek.simplates.language.psi.SimplatesTypes;
 
-import static com.intellij.psi.TokenType.BAD_CHARACTER;
-import static com.intellij.psi.TokenType.WHITE_SPACE;
-import static generated.GeneratedTypes.*;
+import static com.intellij.psi.TokenType.*;
 
 %%
 
 %{
-  public _SimplatesLexer() {
+  public SimplatesLexer() {
     this((java.io.Reader)null);
   }
 %}
@@ -26,20 +25,26 @@ EOL=\R
 WHITE_SPACE=\s+
 
 BEGIN=\[---+]
-CONTENTTYPE=[a-z]+"/"[a-z.+\-]+
-FUNCTIONNAME=[^ \t\n\x0B\f\r]+
-SPACE=[ \t\n\x0B\f\r]+
-CODE=.*
+CONTENT_TYPE=[a-z]+"/"[a-z.+\-]+
+FUNCTION_NAME=[a-zA-Z_][a-z0-9_]+
+WHITE_SPACE=[ \t\n\x0B\f\r]+
+
+%state STAV
 
 %%
 <YYINITIAL> {
-  {WHITE_SPACE}       { return WHITE_SPACE; }
-
-
-  {BEGIN}             { return BEGIN; }
-  {CONTENTTYPE}       { return CONTENTTYPE; }
-  {FUNCTIONNAME}      { return FUNCTIONNAME; }
-  {SPACE}             { return SPACE; }
-  {CODE}              { return CODE; }
+  {BEGIN}                              { yybegin(STAV); return SimplatesTypes.BEGIN; }
+  {WHITE_SPACE}|({WHITE_SPACE}|{EOL})+ {}
+  [^]                                  { yybegin(YYINITIAL); return SimplatesTypes.CODE; }
 
 }
+
+<STAV> {
+  {EOL}                                { yybegin(YYINITIAL); }
+  {WHITE_SPACE}                        { return SimplatesTypes.SEP_SPACE; }
+  {CONTENT_TYPE}                       { return SimplatesTypes.CONTENT_TYPE; }
+  "via"                                { return SimplatesTypes.VIA_TOKEN; }
+  {FUNCTION_NAME}                      { return SimplatesTypes.FUNCTION_NAME; }
+}
+
+[^]                                    { return BAD_CHARACTER; }

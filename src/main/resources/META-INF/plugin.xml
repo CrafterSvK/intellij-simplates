@@ -25,7 +25,7 @@
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
         <fileType
-                name="Simplates File"
+                name="Simplates"
                 implementationClass="xyz.janek.simplates.SimplatesFileType"
                 fieldName="INSTANCE"
                 language="Simplates"

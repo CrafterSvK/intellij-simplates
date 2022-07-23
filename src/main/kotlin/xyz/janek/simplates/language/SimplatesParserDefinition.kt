@@ -11,10 +11,10 @@ import com.intellij.psi.PsiFile
 import com.intellij.psi.TokenType
 import com.intellij.psi.tree.IFileElementType
 import com.intellij.psi.tree.TokenSet
-import generated.GeneratedTypes
 import xyz.janek.simplates.SimplatesLanguage
 import xyz.janek.simplates.language.parser.SimplatesParser
 import xyz.janek.simplates.language.psi.SimplatesFile
+import xyz.janek.simplates.language.psi.SimplatesTypes
 
 class SimplatesParserDefinition : ParserDefinition {
     companion object {
@@ -47,7 +47,7 @@ class SimplatesParserDefinition : ParserDefinition {
     }
 
     override fun createElement(node: ASTNode?): PsiElement {
-        return GeneratedTypes.Factory.createElement(node)
+        return SimplatesTypes.Factory.createElement(node)
     }
 
     override fun createFile(viewProvider: FileViewProvider): PsiFile {

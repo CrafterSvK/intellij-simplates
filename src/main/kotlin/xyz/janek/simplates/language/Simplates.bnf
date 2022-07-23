@@ -4,24 +4,26 @@
     psiClassPrefix="Simplates"
     psiImplClassSuffix="Impl"
     psiPackage="xyz.janek.simplates.language.psi.impl"
+
+    elementTypeHolderClass="xyz.janek.simplates.language.psi.SimplatesTypes"
     elementTypeClass="xyz.janek.simplates.language.psi.SimplatesElementType"
     tokenTypeClass="xyz.janek.simplates.language.psi.SimplatesTokenType"
 
     tokens=[
-        begin='regexp:\[---+]'
-        contentType='regexp:[a-z]+/[a-z.+\-]+'
-        functionName='regexp:\S+'
-        space='regexp:\s+'
-        code='regexp:^(?!\[---+]).*'
+        BEGIN='regexp:\[---+]'
+        CONTENT_TYPE='regexp:[a-z]+/[a-z.+\-]+'
+        FUNCTION_NAME='regexp:[a-zA-Z_][a-z0-9_]+'
+//        CODE='regexp:^(?!\[---+]).*'
+        CODE='regexp:.*'
+        SEP_SPACE='regexp:\s+'
+        VIA_TOKEN='regexp:(via)'
+        EOL='regexp:\R'
     ]
 }
 
 simplatesFile ::= item_*
 
-private item_ ::= (annotation|code)
+private item_ ::= (annotation|CODE)
 
-annotation ::= (via|typed|empty)
-
-empty ::= begin
-typed ::= empty + space + contentType
-via ::= typed + space + "via" + space + functionName
+annotation ::= BEGIN [SEP_SPACE content_]|EOL
+private content_ ::= CONTENT_TYPE [SEP_SPACE VIA_TOKEN SEP_SPACE FUNCTION_NAME]|EOL
