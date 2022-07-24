@@ -47,7 +47,7 @@ class SimplatesParserDefinition : ParserDefinition {
         return STRING_LITERALS
     }
 
-    override fun createElement(node: ASTNode?): PsiElement {
+    override fun createElement(node: ASTNode): PsiElement {
         return SimplatesTypes.Factory.createElement(node)
     }
 
