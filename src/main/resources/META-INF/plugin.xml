@@ -19,6 +19,8 @@
 
     <!-- Product and plugin compatibility requirements.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.python</depends>
+    <depends>org.intellij.intelliLang</depends>
     <depends>com.intellij.modules.platform</depends>
 
     <!-- Extension points defined by the plugin.
@@ -36,6 +38,10 @@
         <lang.syntaxHighlighterFactory
                 language="Simplates"
                 implementationClass="xyz.janek.simplates.language.SimplatesSyntaxHighlighterFactory"/>
+        <languageInjectionContributor
+                language="Simplates"
+                implementationClass="xyz.janek.simplates.language.SimplatesLanguageInjectionContributor"
+        />
     </extensions>
     <actions>
         <action class="xyz.janek.simplates.CreateSimplatesAction" id="CreateSimplatesFile">

@@ -20,8 +20,8 @@ repositories {
 intellij {
     version.set("2022.1")
     type.set("PC") // Target IDE Platform
-    plugins.add("org.intellij.intelliLang")
     plugins.add("python-ce")
+    plugins.add("org.intellij.intelliLang")
 
     // fixme: ideaVersion is empty
 //    if (ideaVersion.contains("PC")) {
