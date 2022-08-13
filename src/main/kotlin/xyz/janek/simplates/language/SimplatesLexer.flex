@@ -37,11 +37,6 @@ FUNCTION_NAME=[a-zA-Z_][a-z0-9_]+
     [^]                                  { yybegin(CODE_STATE); }
 }
 
-//<CHECK_CODE> {
-//    <<EOF>>                              { return SimplatesTypes.CODE; }
-//    [^]                                  { yybegin(CODE_STATE); }
-//}
-
 <CODE_STATE> {
     [^]                                  { yybegin(CODE_STATE); }
     [^]/{EOL}+{BEGIN}                    { yybegin(YYINITIAL); return SimplatesTypes.CODE; }
@@ -57,4 +52,3 @@ FUNCTION_NAME=[a-zA-Z_][a-z0-9_]+
 }
 
 [^]                                      { return BAD_CHARACTER; }
-//<<EOF>>                                  { return null; }
