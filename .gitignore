@@ -40,3 +40,10 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### Sonarlint ###
+.idea/sonarlint
+
+### jflex files ###
+idea-flex.skeleton
+jflex-*.jar
