@@ -38,13 +38,14 @@ FUNCTION_NAME=[a-zA-Z_][a-z0-9_]+
 }
 
 <CODE_STATE> {
+    [^]/{BEGIN}                          { yybegin(YYINITIAL); return SimplatesTypes.CODE; }
     [^]                                  { yybegin(CODE_STATE); }
     [^]/{EOL}+{BEGIN}                    { yybegin(YYINITIAL); return SimplatesTypes.CODE; }
     <<EOF>>                              { yybegin(YYINITIAL); return SimplatesTypes.CODE; }
 }
 
 <HEAD_STATE> {
-    {EOL}+                               { yybegin(CODE_STATE); return SimplatesTypes.EOL; }
+    {EOL}+                               { yybegin(YYINITIAL); return SimplatesTypes.EOL; }
     {WHITE_SPACE}                        { return SimplatesTypes.WHITE_SPACE; }
     {CONTENT_TYPE}                       { return SimplatesTypes.CONTENT_TYPE_TOKEN; }
     "via"                                { return SimplatesTypes.VIA; }

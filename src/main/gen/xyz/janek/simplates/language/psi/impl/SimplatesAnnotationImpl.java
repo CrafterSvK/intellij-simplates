@@ -33,9 +33,9 @@ public class SimplatesAnnotationImpl extends ASTWrapperPsiElement implements Sim
   }
 
   @Override
-  @Nullable
+  @NotNull
   public PsiElement getEol() {
-    return findChildByType(EOL);
+    return findNotNullChildByType(EOL);
   }
 
   @Override

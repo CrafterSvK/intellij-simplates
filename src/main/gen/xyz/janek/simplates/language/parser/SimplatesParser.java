@@ -49,7 +49,7 @@ public class SimplatesParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // SEPARATOR (WHITE_SPACE content_type | [WHITE_SPACE] EOL)
+  // SEPARATOR (WHITE_SPACE content_type EOL | [WHITE_SPACE] EOL)
   public static boolean annotation(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "annotation")) return false;
     if (!nextTokenIs(b, SEPARATOR)) return false;
@@ -61,7 +61,7 @@ public class SimplatesParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // WHITE_SPACE content_type | [WHITE_SPACE] EOL
+  // WHITE_SPACE content_type EOL | [WHITE_SPACE] EOL
   private static boolean annotation_1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "annotation_1")) return false;
     boolean r;
@@ -72,13 +72,14 @@ public class SimplatesParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // WHITE_SPACE content_type
+  // WHITE_SPACE content_type EOL
   private static boolean annotation_1_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "annotation_1_0")) return false;
     boolean r;
     Marker m = enter_section_(b);
     r = consumeToken(b, WHITE_SPACE);
     r = r && content_type(b, l + 1);
+    r = r && consumeToken(b, EOL);
     exit_section_(b, m, null, r);
     return r;
   }
@@ -126,7 +127,7 @@ public class SimplatesParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // CONTENT_TYPE_TOKEN [WHITE_SPACE VIA WHITE_SPACE FUNCTION_NAME]
+  // CONTENT_TYPE_TOKEN [WHITE_SPACE VIA WHITE_SPACE FUNCTION_NAME EOL]
   public static boolean content_type(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "content_type")) return false;
     if (!nextTokenIs(b, CONTENT_TYPE_TOKEN)) return false;
@@ -138,10 +139,10 @@ public class SimplatesParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // [WHITE_SPACE VIA WHITE_SPACE FUNCTION_NAME]
+  // [WHITE_SPACE VIA WHITE_SPACE FUNCTION_NAME EOL]
   private static boolean content_type_1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "content_type_1")) return false;
-    parseTokens(b, 0, WHITE_SPACE, VIA, WHITE_SPACE, FUNCTION_NAME);
+    parseTokens(b, 0, WHITE_SPACE, VIA, WHITE_SPACE, FUNCTION_NAME, EOL);
     return true;
   }
 

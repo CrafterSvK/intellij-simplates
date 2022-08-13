@@ -68,8 +68,8 @@ public class SimplatesLexer implements FlexLexer {
 
   private static final String ZZ_ACTION_PACKED_0 =
     "\4\0\1\1\1\2\1\1\1\3\1\4\1\5\3\3"+
-    "\1\1\1\0\1\6\1\0\2\6\2\0\1\7\1\10"+
-    "\3\0\1\11\2\0\1\12";
+    "\1\1\1\0\1\6\1\0\2\6\3\0\1\7\1\10"+
+    "\3\0\1\11\1\0\1\12";
 
   private static int [] zzUnpackAction() {
     int [] result = new int[30];
@@ -99,8 +99,8 @@ public class SimplatesLexer implements FlexLexer {
   private static final String ZZ_ROWMAP_PACKED_0 =
     "\0\0\0\17\0\36\0\55\0\74\0\113\0\132\0\74"+
     "\0\151\0\170\0\207\0\226\0\245\0\264\0\303\0\207"+
-    "\0\322\0\226\0\341\0\360\0\377\0\322\0\207\0\u010e"+
-    "\0\u011d\0\u012c\0\74\0\u013b\0\u014a\0\74";
+    "\0\322\0\226\0\341\0\264\0\360\0\377\0\322\0\207"+
+    "\0\u010e\0\u011d\0\u012c\0\74\0\u013b\0\74";
 
   private static int [] zzUnpackRowMap() {
     int [] result = new int[30];
@@ -131,15 +131,14 @@ public class SimplatesLexer implements FlexLexer {
     "\17\10\20\0\2\6\20\0\1\17\13\0\1\11\1\12"+
     "\15\0\2\12\22\0\1\20\1\21\2\0\2\22\3\20"+
     "\6\0\1\22\3\0\5\22\6\0\1\20\1\21\2\0"+
-    "\2\22\1\20\1\23\1\20\1\0\1\24\21\0\1\25"+
-    "\16\0\1\26\1\0\1\26\1\0\1\26\3\0\3\26"+
-    "\6\0\1\20\1\21\2\0\2\22\2\20\1\27\1\0"+
-    "\1\24\1\0\1\30\17\0\1\31\16\0\1\32\16\0"+
-    "\1\31\1\33\15\0\1\34\16\0\1\35\16\0\1\35"+
-    "\1\36\11\0";
+    "\2\22\1\20\1\23\1\20\1\0\1\24\1\0\1\25"+
+    "\17\0\1\26\16\0\1\27\1\0\1\27\1\0\1\27"+
+    "\3\0\3\27\6\0\1\20\1\21\2\0\2\22\2\20"+
+    "\1\30\4\0\1\31\16\0\1\32\16\0\1\33\16\0"+
+    "\1\32\1\34\15\0\1\35\16\0\1\35\1\36\11\0";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[345];
+    int [] result = new int[330];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -178,7 +177,7 @@ public class SimplatesLexer implements FlexLexer {
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
     "\4\0\1\11\2\1\1\11\6\1\1\0\1\1\1\0"+
-    "\2\1\2\0\2\1\3\0\1\11\2\0\1\11";
+    "\2\1\3\0\2\1\3\0\1\11\1\0\1\11";
 
   private static int [] zzUnpackAttribute() {
     int [] result = new int[30];
@@ -509,7 +508,7 @@ public class SimplatesLexer implements FlexLexer {
             // fall through
           case 13: break;
           case 4: 
-            { yybegin(CODE_STATE); return SimplatesTypes.EOL;
+            { yybegin(YYINITIAL); return SimplatesTypes.EOL;
             } 
             // fall through
           case 14: break;

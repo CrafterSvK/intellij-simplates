@@ -26,5 +26,5 @@ template_segment ::= !<<eof>> (annotated_code_block | code_block)
 
 code_block ::= (WHITE_SPACE | EOL | CODE) *
 annotated_code_block ::= annotation code_block
-annotation ::= SEPARATOR (WHITE_SPACE content_type | [WHITE_SPACE] EOL)
-content_type ::= CONTENT_TYPE_TOKEN [WHITE_SPACE VIA WHITE_SPACE FUNCTION_NAME]
+annotation ::= SEPARATOR (WHITE_SPACE content_type EOL | [WHITE_SPACE] EOL)
+content_type ::= CONTENT_TYPE_TOKEN [WHITE_SPACE VIA WHITE_SPACE FUNCTION_NAME EOL]

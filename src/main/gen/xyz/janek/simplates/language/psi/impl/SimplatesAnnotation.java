@@ -10,7 +10,7 @@ public interface SimplatesAnnotation extends PsiElement {
   @Nullable
   SimplatesContentType getContentType();
 
-  @Nullable
+  @NotNull
   PsiElement getEol();
 
   @NotNull
