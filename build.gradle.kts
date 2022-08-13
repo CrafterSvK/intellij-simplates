@@ -1,15 +1,11 @@
-fun config(name: String) = project.findProperty(name).toString()
-
-val ideaVersion = config("ideaVersion")
-
 plugins {
     id("java")
     id("org.jetbrains.kotlin.jvm") version "1.6.20"
-    id("org.jetbrains.intellij") version "1.7.0"
+    id("org.jetbrains.intellij") version "1.8.0"
 }
 
 group = "xyz.janek"
-version = "1.0-SNAPSHOT"
+version = "1.0"
 
 repositories {
     mavenCentral()
@@ -18,19 +14,17 @@ repositories {
 // Configure Gradle IntelliJ Plugin
 // Read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
 intellij {
-    version.set("2022.1")
-    type.set("PC") // Target IDE Platform
-    plugins.add("python-ce")
+    version.set("2022.2")
+//    type.set("PY") // Target IDE Platform
     plugins.add("org.intellij.intelliLang")
 
-    // fixme: ideaVersion is empty
-//    if (ideaVersion.contains("PC")) {
-//        plugins.add("python-ce")
-//    } else if (ideaVersion.contains("PY")) {
-//        plugins.add("python")
-//    } else {
-//        plugins.add("PythonCore:221.6008.13")
-//    }
+    if (intellij.version.equals("PC")) {
+        plugins.add("python-ce")
+    } else if (intellij.version.equals("PY")) {
+        plugins.add("python")
+    } else {
+        plugins.add("PythonCore:222.3345.48")
+    }
 }
 
 tasks {

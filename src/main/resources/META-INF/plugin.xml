@@ -40,7 +40,7 @@
                 implementationClass="xyz.janek.simplates.language.SimplatesSyntaxHighlighterFactory"/>
         <languageInjectionContributor
                 language="Simplates"
-                implementationClass="xyz.janek.simplates.language.SimplatesLanguageInjectionContributor"
+                implementationClass="xyz.janek.simplates.language.SimplatesInjectionContributor"
         />
     </extensions>
     <actions>
