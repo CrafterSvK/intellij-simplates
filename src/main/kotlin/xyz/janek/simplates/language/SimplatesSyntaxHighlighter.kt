@@ -27,13 +27,13 @@ class SimplatesSyntaxHighlighter : SyntaxHighlighterBase() {
     }
 
     override fun getTokenHighlights(tokenType: IElementType): Array<out TextAttributesKey?> {
-        if (tokenType == SimplatesTypes.BEGIN) {
+        if (tokenType == SimplatesTypes.SEPARATOR) {
             return TAG_KEYS
         }
         if (tokenType == SimplatesTypes.CONTENT_TYPE) {
             return CONTENT_TYPE_KEYS
         }
-        if (tokenType == SimplatesTypes.VIA_TOKEN) {
+        if (tokenType == SimplatesTypes.VIA) {
             return VIA_KEYS
         }
 

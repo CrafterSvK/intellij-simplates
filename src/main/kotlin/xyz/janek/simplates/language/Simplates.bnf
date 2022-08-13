@@ -10,19 +10,20 @@
     tokenTypeClass="xyz.janek.simplates.language.psi.SimplatesTokenType"
 
     tokens=[
-        BEGIN='regexp:\[---+]'
-        CONTENT_TYPE='regexp:[a-z]+/[a-z.+\-]+'
+        SEPARATOR='regexp:\[---+]'
+        CONTENT_TYPE_TOKEN='regexp:[a-z]+/[a-z]+ via [a-z_]+'
         FUNCTION_NAME='regexp:[a-zA-Z_][a-z0-9_]+'
-        CODE='regexp:.*'
-        SEP_SPACE='regexp:\s+'
-        VIA_TOKEN='regexp:(via)'
+        CODE='regexp:(?!(\[---|\s)).*'
+        WHITE_SPACE='regexp: +'
+        EOL='regexp:(\R|\n)'
+        VIA='via'
     ]
 }
 
-simplatesFile ::= item_*
+simplates_file ::= template_segment *
+template_segment ::= !<<eof>> (annotated_code_block | code_block)
 
-private item_ ::= (annotation|CODE)
-
-annotation ::= BEGIN [SEP_SPACE content_]
-private content_ ::= CONTENT_TYPE [SEP_SPACE via_]
-private via_ ::= VIA_TOKEN SEP_SPACE FUNCTION_NAME
+code_block ::= (WHITE_SPACE | EOL | CODE) *
+annotated_code_block ::= annotation code_block
+annotation ::= SEPARATOR (WHITE_SPACE content_type | [WHITE_SPACE] EOL)
+content_type ::= CONTENT_TYPE_TOKEN [WHITE_SPACE VIA WHITE_SPACE FUNCTION_NAME]

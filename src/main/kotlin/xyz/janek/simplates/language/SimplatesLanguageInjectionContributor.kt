@@ -13,13 +13,13 @@ class SimplatesLanguageInjectionContributor : LanguageInjectionContributor {
     override fun getInjection(context: PsiElement): Injection {
         var language: Language? = null
         if (context.elementType == SimplatesTypes.CODE_BLOCK) {
-            val annotation = context.prevSibling?.prevSibling
+            val parent = context.parent
 
-            if (annotation != null && annotation.elementType == SimplatesTypes.ANNOTATION) {
-                val contentType = annotation.firstChild?.nextSibling?.nextSibling?.text
+            if (parent != null && parent.elementType == SimplatesTypes.ANNOTATED_CODE_BLOCK) {
+                val contentType = parent.firstChild?.firstChild?.nextSibling?.nextSibling
 
-                if (contentType != null) {
-                    val languages = Language.findInstancesByMimeType(contentType).toTypedArray()
+                if (contentType != null && contentType.elementType == SimplatesTypes.CONTENT_TYPE) {
+                    val languages = Language.findInstancesByMimeType(contentType.text).toTypedArray()
 
                     if (languages.isNotEmpty()) {
                         language = languages[0]
@@ -32,6 +32,6 @@ class SimplatesLanguageInjectionContributor : LanguageInjectionContributor {
             return SimpleInjection(language, "", "", null)
         }
 
-        return SimpleInjection(PythonLanguage.INSTANCE, "", "", "")
+        return SimpleInjection(PythonLanguage.INSTANCE, "", "", null)
     }
 }
