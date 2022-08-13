@@ -1,5 +1,5 @@
 // This is a generated file. Not intended for manual editing.
-package generated.psi.impl;
+package xyz.janek.simplates.language.psi.impl;
 
 import java.util.List;
 import org.jetbrains.annotations.*;
@@ -9,7 +9,6 @@ import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static xyz.janek.simplates.language.psi.SimplatesTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
-import xyz.janek.simplates.language.psi.impl.*;
 
 public class SimplatesTemplateSegmentImpl extends ASTWrapperPsiElement implements SimplatesTemplateSegment {
 

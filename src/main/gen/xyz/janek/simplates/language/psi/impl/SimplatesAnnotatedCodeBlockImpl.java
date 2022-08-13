@@ -1,5 +1,5 @@
 // This is a generated file. Not intended for manual editing.
-package generated.psi.impl;
+package xyz.janek.simplates.language.psi.impl;
 
 import java.util.List;
 import org.jetbrains.annotations.*;
@@ -9,16 +9,15 @@ import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static xyz.janek.simplates.language.psi.SimplatesTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
-import xyz.janek.simplates.language.psi.impl.*;
 
-public class SimplatesContentTypeImpl extends ASTWrapperPsiElement implements SimplatesContentType {
+public class SimplatesAnnotatedCodeBlockImpl extends ASTWrapperPsiElement implements SimplatesAnnotatedCodeBlock {
 
-  public SimplatesContentTypeImpl(@NotNull ASTNode node) {
+  public SimplatesAnnotatedCodeBlockImpl(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull SimplatesVisitor visitor) {
-    visitor.visitContentType(this);
+    visitor.visitAnnotatedCodeBlock(this);
   }
 
   @Override
@@ -29,14 +28,14 @@ public class SimplatesContentTypeImpl extends ASTWrapperPsiElement implements Si
 
   @Override
   @NotNull
-  public PsiElement getContentTypeToken() {
-    return findNotNullChildByType(CONTENT_TYPE_TOKEN);
+  public SimplatesAnnotation getAnnotation() {
+    return findNotNullChildByClass(SimplatesAnnotation.class);
   }
 
   @Override
-  @Nullable
-  public PsiElement getFunctionName() {
-    return findChildByType(FUNCTION_NAME);
+  @NotNull
+  public SimplatesCodeBlock getCodeBlock() {
+    return findNotNullChildByClass(SimplatesCodeBlock.class);
   }
 
 }

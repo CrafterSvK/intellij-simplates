@@ -1,5 +1,5 @@
 // This is a generated file. Not intended for manual editing.
-package generated.psi.impl;
+package xyz.janek.simplates.language.psi.impl;
 
 import java.util.List;
 import org.jetbrains.annotations.*;
@@ -9,16 +9,15 @@ import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static xyz.janek.simplates.language.psi.SimplatesTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
-import xyz.janek.simplates.language.psi.impl.*;
 
-public class SimplatesAnnotatedCodeBlockImpl extends ASTWrapperPsiElement implements SimplatesAnnotatedCodeBlock {
+public class SimplatesAnnotationImpl extends ASTWrapperPsiElement implements SimplatesAnnotation {
 
-  public SimplatesAnnotatedCodeBlockImpl(@NotNull ASTNode node) {
+  public SimplatesAnnotationImpl(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull SimplatesVisitor visitor) {
-    visitor.visitAnnotatedCodeBlock(this);
+    visitor.visitAnnotation(this);
   }
 
   @Override
@@ -28,15 +27,27 @@ public class SimplatesAnnotatedCodeBlockImpl extends ASTWrapperPsiElement implem
   }
 
   @Override
-  @NotNull
-  public SimplatesAnnotation getAnnotation() {
-    return findNotNullChildByClass(SimplatesAnnotation.class);
+  @Nullable
+  public SimplatesContentType getContentType() {
+    return findChildByClass(SimplatesContentType.class);
+  }
+
+  @Override
+  @Nullable
+  public PsiElement getEol() {
+    return findChildByType(EOL);
   }
 
   @Override
   @NotNull
-  public SimplatesCodeBlock getCodeBlock() {
-    return findNotNullChildByClass(SimplatesCodeBlock.class);
+  public PsiElement getSeparator() {
+    return findNotNullChildByType(SEPARATOR);
+  }
+
+  @Override
+  @Nullable
+  public PsiElement getWhiteSpace() {
+    return findChildByType(WHITE_SPACE);
   }
 
 }

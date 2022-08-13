@@ -4,7 +4,7 @@ package xyz.janek.simplates.language.psi;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.psi.PsiElement;
 import com.intellij.lang.ASTNode;
-import generated.psi.impl.*;
+import xyz.janek.simplates.language.psi.impl.*;
 
 public interface SimplatesTypes {
 

@@ -1,5 +1,5 @@
 // This is a generated file. Not intended for manual editing.
-package generated.psi.impl;
+package xyz.janek.simplates.language.psi.impl;
 
 import java.util.List;
 import org.jetbrains.annotations.*;
@@ -9,16 +9,15 @@ import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.util.PsiTreeUtil;
 import static xyz.janek.simplates.language.psi.SimplatesTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
-import xyz.janek.simplates.language.psi.impl.*;
 
-public class SimplatesAnnotationImpl extends ASTWrapperPsiElement implements SimplatesAnnotation {
+public class SimplatesContentTypeImpl extends ASTWrapperPsiElement implements SimplatesContentType {
 
-  public SimplatesAnnotationImpl(@NotNull ASTNode node) {
+  public SimplatesContentTypeImpl(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull SimplatesVisitor visitor) {
-    visitor.visitAnnotation(this);
+    visitor.visitContentType(this);
   }
 
   @Override
@@ -28,27 +27,15 @@ public class SimplatesAnnotationImpl extends ASTWrapperPsiElement implements Sim
   }
 
   @Override
-  @Nullable
-  public SimplatesContentType getContentType() {
-    return findChildByClass(SimplatesContentType.class);
-  }
-
-  @Override
-  @Nullable
-  public PsiElement getEol() {
-    return findChildByType(EOL);
-  }
-
-  @Override
   @NotNull
-  public PsiElement getSeparator() {
-    return findNotNullChildByType(SEPARATOR);
+  public PsiElement getContentTypeToken() {
+    return findNotNullChildByType(CONTENT_TYPE_TOKEN);
   }
 
   @Override
   @Nullable
-  public PsiElement getWhiteSpace() {
-    return findChildByType(WHITE_SPACE);
+  public PsiElement getFunctionName() {
+    return findChildByType(FUNCTION_NAME);
   }
 
 }
