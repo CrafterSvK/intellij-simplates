@@ -11,11 +11,15 @@ repositories {
     mavenCentral()
 }
 
+dependencies {
+    implementation("org.jetbrains:marketplace-zip-signer:0.1.8")
+}
+
 // Configure Gradle IntelliJ Plugin
 // Read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
 intellij {
     version.set("2022.2")
-//    type.set("PY") // Target IDE Platform
+    type.set("PY") // Target IDE Platform
     plugins.add("org.intellij.intelliLang")
 
     if (intellij.version.equals("PC")) {
