@@ -59,6 +59,6 @@ class SimplatesInjector : MultiHostInjector {
     }
 
     override fun elementsToInjectIn(): MutableList<out Class<out PsiElement>> {
-        return listOf(SimplatesCodeBlockImpl::class.java).toMutableList()
+        return mutableListOf(SimplatesCodeBlockImpl::class.java)
     }
 }
