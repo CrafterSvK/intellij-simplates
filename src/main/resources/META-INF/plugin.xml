@@ -38,10 +38,7 @@
         <lang.syntaxHighlighterFactory
                 language="Simplates"
                 implementationClass="xyz.janek.simplates.language.SimplatesSyntaxHighlighterFactory"/>
-        <languageInjectionContributor
-                language="Simplates"
-                implementationClass="xyz.janek.simplates.language.SimplatesInjectionContributor"
-        />
+        <multiHostInjector implementation="xyz.janek.simplates.language.SimplatesInjector"/>
     </extensions>
     <actions>
         <action class="xyz.janek.simplates.CreateSimplatesAction" id="CreateSimplatesFile">
