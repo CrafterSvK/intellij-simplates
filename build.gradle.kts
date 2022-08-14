@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "xyz.janek"
-version = "1.0"
+version = "1.0.0"
 
 repositories {
     mavenCentral()
@@ -47,8 +47,8 @@ tasks {
     }
 
     signPlugin {
-        certificateChain.set(System.getenv("CERTIFICATE_CHAIN"))
-        privateKey.set(System.getenv("PRIVATE_KEY"))
+        certificateChain.set(File(System.getenv("CERTIFICATE_CHAIN") ?: "./chain.crt").readText(Charsets.UTF_8))
+        privateKey.set(File(System.getenv("PRIVATE_KEY") ?: "./private.pem").readText(Charsets.UTF_8))
         password.set(System.getenv("PRIVATE_KEY_PASSWORD"))
     }
 
