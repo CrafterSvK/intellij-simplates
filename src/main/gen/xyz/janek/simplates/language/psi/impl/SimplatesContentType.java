@@ -11,9 +11,6 @@ public interface SimplatesContentType extends PsiElement {
   PsiElement getContentTypeToken();
 
   @Nullable
-  PsiElement getEol();
-
-  @Nullable
   PsiElement getFunctionName();
 
 }

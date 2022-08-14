@@ -127,7 +127,7 @@ public class SimplatesParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // CONTENT_TYPE_TOKEN [WHITE_SPACE VIA WHITE_SPACE FUNCTION_NAME EOL]
+  // CONTENT_TYPE_TOKEN [WHITE_SPACE VIA WHITE_SPACE FUNCTION_NAME]
   public static boolean content_type(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "content_type")) return false;
     if (!nextTokenIs(b, CONTENT_TYPE_TOKEN)) return false;
@@ -139,10 +139,10 @@ public class SimplatesParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // [WHITE_SPACE VIA WHITE_SPACE FUNCTION_NAME EOL]
+  // [WHITE_SPACE VIA WHITE_SPACE FUNCTION_NAME]
   private static boolean content_type_1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "content_type_1")) return false;
-    parseTokens(b, 0, WHITE_SPACE, VIA, WHITE_SPACE, FUNCTION_NAME, EOL);
+    parseTokens(b, 0, WHITE_SPACE, VIA, WHITE_SPACE, FUNCTION_NAME);
     return true;
   }
 

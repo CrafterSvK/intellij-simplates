@@ -34,12 +34,6 @@ public class SimplatesContentTypeImpl extends ASTWrapperPsiElement implements Si
 
   @Override
   @Nullable
-  public PsiElement getEol() {
-    return findChildByType(EOL);
-  }
-
-  @Override
-  @Nullable
   public PsiElement getFunctionName() {
     return findChildByType(FUNCTION_NAME);
   }
