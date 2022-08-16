@@ -14,8 +14,16 @@
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
-    Adds support for Simplates used by Aspen web framework.
+    <p>Adds support for <a href="http://simplates.org">Simplates</a> used by Aspen web framework.</p>
+    <p>How to use Simplates can be found in <a href="http://core.aspen.io/en/latest/simplates.html">Simplates documentation</a>.</p>
+    <p>List of features:
+    <ul>
+        <li>syntax highlighting of python code blocks and content blocks by content-type</li>
+    </ul>
+    </p>
   ]]></description>
+
+    <change-notes>Initial release</change-notes>
 
     <!-- Product and plugin compatibility requirements.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
